@@ -1,0 +1,17 @@
+{
+  "name": "@strawci/parser",
+  "description": "Action parser for StrawCI",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "node ./example/example.js"
+  },
+  "dependencies": {
+    "yamljs": "^0.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/strawci/parser"
+  }
+}

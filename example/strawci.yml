@@ -1,0 +1,30 @@
+# These packages are to be installed before the first deployment.
+dependencies:
+  - "git"
+
+# This will only run on the first deployment
+on inition:
+  - "bash: npm install yarn -g"
+  - "bash: npm test"
+
+# This section will run every time a commit is made on the Main branch.
+on commit in branch main:
+  - "function: stop"
+  - "function: clean"
+  - "function: build"
+  - "function: start"
+    
+## Define functions that can be used above ##
+function stop:
+  - "bash: yarn stop"
+    
+function clean:
+  - "bash: rm -rf ./build"
+
+function build:
+  - "bash: git pull"
+  - "bash: yarn install"
+  - "bash: yarn build"
+    
+function start:
+  - "bash: yarn start"
